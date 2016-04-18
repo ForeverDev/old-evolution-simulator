@@ -8,9 +8,11 @@ function love.load()
 
 	BIGFONT = DRAW.getFont()
 	SMALLFONT = DRAW.newFont(9)
+	
+	WINDOW.setFullscreen(true)
 
-	SCREEN_WIDTH = WINDOW:getWidth()
-	SCREEN_HEIGHT = WINDOW:getHeight()
+	SCREEN_WIDTH = DRAW.getWidth()
+	SCREEN_HEIGHT = DRAW.getHeight()
 	SCREEN_PIXELS = SCREEN_WIDTH * SCREEN_HEIGHT
 
 	DRAW.setBackgroundColor(255, 255, 255)
@@ -49,5 +51,8 @@ function love.mousepressed(x, y, b)
 end
 
 function love.keypressed(key)
+	if key == "escape" then
+		love.event.quit()
+	end
 	simulator:keypressed(key)
 end
